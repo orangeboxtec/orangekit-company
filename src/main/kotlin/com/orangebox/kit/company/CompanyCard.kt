@@ -6,6 +6,7 @@ class CompanyCard {
     var id: String? = null
     var name: String? = null
     var address: String? = null
+    var document: String? = null
     var rating: Double? = null
     var serviceFeatured: String? = null
     var priceFeatured: Double? = null
