@@ -140,4 +140,12 @@ class CompanyRestService : AdminBaseRestService() {
     fun searchAdmin(search: CompanySearch): ResponseList<Company>? {
         return companyService.searchAdmin(search)
     }
+
+    @SecuredAdmin
+    @POST
+    @Consumes("application/json")
+    @Path("/saveAvatar")
+    fun saveAvatar(fileUpload: FileUpload) {
+        return companyService.saveAvatar(fileUpload)
+    }
 }

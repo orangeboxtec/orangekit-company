@@ -1,11 +1,12 @@
 package com.orangebox.kit.company
 
-import com.orangebox.kit.admin.userb.UserBService
 import com.orangebox.kit.core.address.AddressUtils
+import com.orangebox.kit.core.bucket.BucketService
 import com.orangebox.kit.core.dao.OperationEnum
 import com.orangebox.kit.core.dao.SearchBuilder
 import com.orangebox.kit.core.dto.ResponseList
 import com.orangebox.kit.core.exception.BusinessException
+import com.orangebox.kit.core.photo.FileUpload
 import com.orangebox.kit.core.photo.GalleryItem
 import com.orangebox.kit.core.utils.BusinessUtils
 import java.util.*
@@ -17,7 +18,7 @@ class CompanyService {
     private val COMPANIES_PAGE = 10
 
     @Inject
-    private lateinit var userBService: UserBService
+    private lateinit var bucketService: BucketService
 
     @Inject
     private lateinit var companyDAO: CompanyDAO
@@ -248,5 +249,12 @@ class CompanyService {
         }
 
         return companyDAO.searchToResponse(builder.build())
+    }
+
+    fun saveAvatar(file: FileUpload){
+        val company = retrieve(file.idObject!!) ?: throw BusinessException("company_not_foud")
+        val url = bucketService.saveFile(file, company.id!!, "userb", "image/jpg")
+        company.urlImage = url
+        companyDAO.update(company)
     }
 }
