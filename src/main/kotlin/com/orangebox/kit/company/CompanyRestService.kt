@@ -58,8 +58,8 @@ class CompanyRestService : AdminBaseRestService() {
     fun load(@PathParam("id") id: String?): Company? {
         var idComp = id
         val userB = userTokenSession
-        if (userB != null) {
-            idComp = userB.info?.get("idCompany").toString()
+        if (userB?.info?.get("idCompany")?.toString() != null) {
+            idComp = userB.info?.get("idCompany")?.toString()
         }
         return companyService.retrieve(idComp!!)
     }
