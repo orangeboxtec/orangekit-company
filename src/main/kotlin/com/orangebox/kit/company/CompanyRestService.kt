@@ -53,14 +53,9 @@ class CompanyRestService : AdminBaseRestService() {
     }
 
     @GET
-    @Path("/load/{id}")
+    @Path("/load/{idComp}")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    fun load(@PathParam("id") id: String?): Company? {
-        var idComp = id
-        val userB = userTokenSession
-        if (userB?.info?.get("idCompany")?.toString() != null) {
-            idComp = userB.info?.get("idCompany")?.toString()
-        }
+    fun load(@PathParam("idComp") idComp: String?): Company? {
         return companyService.retrieve(idComp!!)
     }
 
