@@ -40,7 +40,7 @@ class Company {
     var businessHours: List<WorkingHour>? = null
     var scheduleException: List<ScheduleException>? = null
     var gallery: ArrayList<GalleryItem>? = null
-    var info: Map<String, Any>? = null
+    var info: HashMap<String, Any>? = null
     var businessHoursDesc: String? = null
     var creationDate: Date? = null
     var distance: Double? = null
