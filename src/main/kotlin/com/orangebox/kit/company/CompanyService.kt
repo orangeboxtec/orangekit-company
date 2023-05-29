@@ -50,23 +50,25 @@ class CompanyService {
 
     fun save(company: Company) {
         if (company.document != null) {
-            if (company.id == null) {
-                val builder = SearchBuilder()
-                builder.appendParamQuery("document", company.document!!)
-                val listComp = companyDAO.search(builder.build())
-                if (!listComp.isNullOrEmpty()) {
-                    throw BusinessException("document_already_used")
-                }
+            val builder = SearchBuilder()
+            builder.appendParamQuery("document", company.document!!)
+            if (company.id != null) {
+                builder.appendParamQuery("_id", company.id!!, OperationEnum.NOT)
+            }
+            val listComp = companyDAO.search(builder.build())
+            if (!listComp.isNullOrEmpty()) {
+                throw BusinessException("document_already_used")
             }
         }
         if (company.code != null) {
-            if (company.id == null) {
-                val builder = SearchBuilder()
-                builder.appendParamQuery("code", company.code!!)
-                val listComp = companyDAO.search(builder.build())
-                if (!listComp.isNullOrEmpty()) {
-                    throw BusinessException("code_already_used")
-                }
+            val builder = SearchBuilder()
+            builder.appendParamQuery("code", company.code!!)
+            if (company.id != null) {
+                builder.appendParamQuery("_id", company.id!!, OperationEnum.NOT)
+            }
+            val listComp = companyDAO.search(builder.build())
+            if (!listComp.isNullOrEmpty()) {
+                throw BusinessException("code_already_used")
             }
         }
         if (company.id == null) {
