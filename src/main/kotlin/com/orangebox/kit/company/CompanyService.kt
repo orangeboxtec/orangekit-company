@@ -57,10 +57,15 @@ class CompanyService {
                 if (!listComp.isNullOrEmpty()) {
                     throw BusinessException("document_already_used")
                 }
-            } else {
-                val companyBase = retrieve(company.id!!) ?: throw BusinessException("company_not_found")
-                if (companyBase.document != null && companyBase.document != company.document) {
-                    throw BusinessException("document_cannot_be_changed")
+            }
+        }
+        if (company.code != null) {
+            if (company.id == null) {
+                val builder = SearchBuilder()
+                builder.appendParamQuery("code", company.code!!)
+                val listComp = companyDAO.search(builder.build())
+                if (!listComp.isNullOrEmpty()) {
+                    throw BusinessException("code_already_used")
                 }
             }
         }
