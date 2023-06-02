@@ -1,6 +1,5 @@
 package com.orangebox.kit.company
 
-import com.orangebox.kit.core.address.AddressUtils
 import com.orangebox.kit.core.bucket.BucketService
 import com.orangebox.kit.core.dao.OperationEnum
 import com.orangebox.kit.core.dao.SearchBuilder
@@ -33,8 +32,7 @@ class CompanyService {
         if (listComp != null) {
             listCompanyCard = ArrayList()
             for (company in listComp) {
-                val card = createCompanyCard(company)
-                listCompanyCard.add(card)
+                listCompanyCard.add(company.toCard())
             }
         }
         return listCompanyCard
@@ -176,45 +174,29 @@ class CompanyService {
         if (listComp != null) {
             list = ArrayList()
             for (company in listComp) {
-                val card = createCompanyCard(company)
-                list.add(card)
+                list.add(company.toCard())
             }
         }
         return list
     }
 
-    fun createCompanyCard(company: Company?): CompanyCard {
-        val card = CompanyCard()
-        card.address = AddressUtils.textualAddress(company!!.addressInfo)
-        card.id = company.id
-        card.name = company.fantasyName
-        card.rating = company.rating
-        card.addressInfo = company.addressInfo
-        if (company.info != null) {
-            card.info = company.info
-        }
-        return card
+    fun createCompanyCard(company: Company?): CompanyCard? {
+        return company?.toCard()
     }
 
-    fun createCompanyCard(idCompany: String?): CompanyCard {
-        val card: CompanyCard
+    fun createCompanyCard(idCompany: String?): CompanyCard? {
         val company = companyDAO.retrieve(Company(idCompany))
-        card = createCompanyCard(company)
-        return card
+        return createCompanyCard(company)
     }
 
-    fun listByIdParent(idParent: String): List<CompanyCard>? {
-        var list: MutableList<CompanyCard>? = null
-        val builder: SearchBuilder = companyDAO.createBuilder()
-        builder.appendParamQuery("idParent", idParent)
-        builder.appendParamQuery("status", "ACTIVE")
-        builder.appendSort("fantasyName", 1)
-        val listComps = companyDAO.search(builder.build())
-        if (listComps != null) {
-            list = ArrayList()
-            for (company in listComps) {
-                list.add(createCompanyCard(company))
-            }
+    fun listByIdParent(idParent: String): List<CompanyCard> {
+        val list = ArrayList<CompanyCard>()
+        companyDAO.search(companyDAO.createBuilder()
+            .appendParamQuery("idParent", idParent)
+            .appendParamQuery("status", "ACTIVE")
+            .appendSort("fantasyName", 1)
+            .build())?.forEach { company ->
+            list.add(company.toCard())
         }
         return list
     }

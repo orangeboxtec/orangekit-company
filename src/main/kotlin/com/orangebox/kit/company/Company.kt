@@ -2,6 +2,7 @@ package com.orangebox.kit.company
 
 import com.orangebox.kit.company.cnae.Cnae
 import com.orangebox.kit.core.address.AddressInfo
+import com.orangebox.kit.core.address.AddressUtils
 import com.orangebox.kit.core.annotation.OKEntity
 import com.orangebox.kit.core.annotation.OKId
 import com.orangebox.kit.core.photo.GalleryItem
@@ -58,5 +59,20 @@ class Company {
     constructor()
     constructor(id: String?) {
         this.id = id
+    }
+
+    fun toCard(): CompanyCard {
+        val card = CompanyCard()
+        card.address = AddressUtils.textualAddress(addressInfo)
+        card.id = id
+        card.fantasyName = fantasyName
+        card.socialName = socialName
+        card.document = document
+        card.rating = rating
+        card.addressInfo = addressInfo
+        if (info != null) {
+            card.info = info
+        }
+        return card
     }
 }

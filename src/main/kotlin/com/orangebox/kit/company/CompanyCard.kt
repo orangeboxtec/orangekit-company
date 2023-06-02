@@ -4,7 +4,8 @@ import com.orangebox.kit.core.address.AddressInfo
 
 class CompanyCard {
     var id: String? = null
-    var name: String? = null
+    var fantasyName: String? = null
+    var socialName: String? = null
     var address: String? = null
     var document: String? = null
     var rating: Double? = null
