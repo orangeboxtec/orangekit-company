@@ -51,7 +51,7 @@ class Company {
     var urlImage: String? = null
     var fgHeadOffice: String? = null
     var cnae: Cnae? = null
-    var secondaryCnaes: List<Cnae>? = null
+    var secondaryCnaes: ArrayList<Cnae>? = null
     var idCategory: String? = null
     var nameCategory: String? = null
 
