@@ -7,7 +7,6 @@ import com.orangebox.kit.core.annotation.OKEntity
 import com.orangebox.kit.core.annotation.OKId
 import com.orangebox.kit.core.photo.GalleryItem
 import java.util.*
-import kotlin.collections.ArrayList
 
 @OKEntity("company")
 class Company {
@@ -44,9 +43,9 @@ class Company {
     var info: HashMap<String, Any>? = null
     var businessHoursDesc: String? = null
     var creationDate: Date? = null
+    var foundationDate: Date? = null
     var distance: Double? = null
     var companyTax: Double? = null
-    var markeiTax: Double? = null
     var salesManTax: Double? = null
     var idSalesMan: String? = null
     var urlImage: String? = null
@@ -70,9 +69,6 @@ class Company {
         card.document = document
         card.rating = rating
         card.addressInfo = addressInfo
-        if (info != null) {
-            card.info = info
-        }
         return card
     }
 }
