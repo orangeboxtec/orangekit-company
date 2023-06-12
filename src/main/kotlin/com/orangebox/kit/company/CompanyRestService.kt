@@ -3,8 +3,8 @@ package com.orangebox.kit.company
 import com.orangebox.kit.admin.util.AdminBaseRestService
 import com.orangebox.kit.admin.util.SecuredAdmin
 import com.orangebox.kit.core.dto.ResponseList
-import com.orangebox.kit.core.photo.FileUpload
-import com.orangebox.kit.core.photo.GalleryItem
+import com.orangebox.kit.core.file.FileUpload
+import com.orangebox.kit.core.file.GalleryItem
 import java.util.*
 import java.util.function.Predicate
 import javax.inject.Inject

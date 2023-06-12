@@ -5,7 +5,7 @@ import com.orangebox.kit.core.address.AddressInfo
 import com.orangebox.kit.core.address.AddressUtils
 import com.orangebox.kit.core.annotation.OKEntity
 import com.orangebox.kit.core.annotation.OKId
-import com.orangebox.kit.core.photo.GalleryItem
+import com.orangebox.kit.core.file.GalleryItem
 import java.util.*
 
 @OKEntity("company")

@@ -5,8 +5,8 @@ import com.orangebox.kit.core.dao.OperationEnum
 import com.orangebox.kit.core.dao.SearchBuilder
 import com.orangebox.kit.core.dto.ResponseList
 import com.orangebox.kit.core.exception.BusinessException
-import com.orangebox.kit.core.photo.FileUpload
-import com.orangebox.kit.core.photo.GalleryItem
+import com.orangebox.kit.core.file.FileUpload
+import com.orangebox.kit.core.file.GalleryItem
 import com.orangebox.kit.core.utils.BusinessUtils
 import java.util.*
 import javax.enterprise.context.ApplicationScoped
