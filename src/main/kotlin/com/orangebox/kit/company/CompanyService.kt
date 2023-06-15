@@ -71,7 +71,6 @@ class CompanyService {
         }
         if (company.id == null) {
             company.creationDate = Date()
-            company.status = "ACTIVE"
         }
         if (company.rating == null) {
             company.rating = 2.5
