@@ -152,6 +152,9 @@ class CompanyService {
         if (search.status != null) {
             builder.appendParamQuery("status", search.status!!)
         }
+        if (search.type != null) {
+            builder.appendParamQuery("type", search.type!!)
+        }
         if (search.idCategory != null) {
             builder.appendParamQuery("category.id", search.idCategory!!)
         }
