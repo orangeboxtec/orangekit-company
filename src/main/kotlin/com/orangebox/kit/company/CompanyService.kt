@@ -235,6 +235,11 @@ class CompanyService {
         if (search.city != null && search.city!!.isNotEmpty()) {
             builder.appendParamQuery("addressInfo.city", search.city!!)
         }
+        if (search.info != null) {
+            search.info?.keys?.forEach { key ->
+                builder.appendParamQuery("info.$key", search.info!![key]!!)
+            }
+        }
 
         builder.setFirst(COMPANIES_PAGE * (search.page!! - 1))
         builder.setMaxResults(COMPANIES_PAGE)
