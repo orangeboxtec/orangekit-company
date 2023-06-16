@@ -1,5 +1,7 @@
 package com.orangebox.kit.company
 
+import java.util.HashMap
+
 class CompanySearch {
     var queryString: String? = null
     var idCategory: String? = null
@@ -15,4 +17,5 @@ class CompanySearch {
     var pageItensNumber: Int? = null
     var idCompanyIn: List<String>? = null
     var sort: Map<String, Int>? = null
+    var info: HashMap<String, Any>? = null
 }

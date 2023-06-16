@@ -170,6 +170,11 @@ class CompanyService {
         if (search.idCompanyIn != null && search.idCompanyIn!!.isNotEmpty()) {
             builder.appendParamQuery("_id", search.idCompanyIn!!, OperationEnum.IN)
         }
+        if (search.info != null) {
+            search.info?.keys?.forEach { key ->
+                builder.appendParamQuery("info.$key", search.info!![key]!!)
+            }
+        }
         builder.setFirst(COMPANIES_PAGE * search.page!!)
         builder.setMaxResults(COMPANIES_PAGE)
         val listComp = companyDAO.search(builder.build())
