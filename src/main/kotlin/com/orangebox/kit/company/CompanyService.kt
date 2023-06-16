@@ -237,7 +237,9 @@ class CompanyService {
         }
         if (search.info != null) {
             search.info?.keys?.forEach { key ->
-                builder.appendParamQuery("info.$key", search.info!![key]!!)
+                if(search.info!![key] != null){
+                    builder.appendParamQuery("info.$key", search.info!![key]!!)
+                }
             }
         }
 
