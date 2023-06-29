@@ -177,14 +177,7 @@ class CompanyService {
         }
         builder.setFirst(COMPANIES_PAGE * search.page!!)
         builder.setMaxResults(COMPANIES_PAGE)
-        val listComp = companyDAO.search(builder.build())
-        if (listComp != null) {
-            list = ArrayList()
-            for (company in listComp) {
-                list.add(company.toCard())
-            }
-        }
-        return list
+        return companyDAO.search(builder.build())?.map { p -> p.toCard() }
     }
 
     fun createCompanyCard(company: Company?): CompanyCard? {
