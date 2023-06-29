@@ -175,6 +175,7 @@ class CompanyService {
                 builder.appendParamQuery("info.$key", search.info!![key]!!)
             }
         }
+        builder.appendSort("creationDate", -1)
         builder.setFirst(COMPANIES_PAGE * search.page!!)
         builder.setMaxResults(COMPANIES_PAGE)
         return companyDAO.search(builder.build())?.map { p -> p.toCard() }
