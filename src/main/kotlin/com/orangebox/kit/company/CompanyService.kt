@@ -27,21 +27,14 @@ class CompanyService {
     }
 
     fun listActiveCards(): List<CompanyCard>? {
-        var listCompanyCard: MutableList<CompanyCard>? = null
-        val listComp = listActives()
-        if (listComp != null) {
-            listCompanyCard = ArrayList()
-            for (company in listComp) {
-                listCompanyCard.add(company.toCard())
-            }
-        }
-        return listCompanyCard
+        return listActives()?.map { p -> p.toCard() }
     }
 
     fun listActives(): List<Company>? {
         return companyDAO.search(
             companyDAO.createBuilder()
                 .appendParamQuery("status", "ACTIVE")
+                .appendSort("socialName", 1)
                 .build()
         )
     }
