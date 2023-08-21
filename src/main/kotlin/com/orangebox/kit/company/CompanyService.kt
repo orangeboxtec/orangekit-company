@@ -40,6 +40,7 @@ class CompanyService {
     }
 
     fun save(company: Company) {
+        company.document = company.document?.replace(Regex("(\\.|-|/)"), "")
         if (company.document != null) {
             val builder = SearchBuilder()
             builder.appendParamQuery("document", company.document!!)
