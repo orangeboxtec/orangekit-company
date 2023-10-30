@@ -211,6 +211,7 @@ class CompanyService {
             builder.appendParamQuery("type", search.type!!)
         }
         if (search.queryString != null) {
+            search.queryString = search.queryString?.replace(Regex("(\\.|-|/)"), "")
             builder.appendParamQuery(
                 "fantasyName|socialName|addressInfo.street|addressInfo.district|addressInfo.city|cnae.desc|cnae.cnae|document",
                 search.queryString!!,
