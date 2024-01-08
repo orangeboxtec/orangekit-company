@@ -2,6 +2,7 @@ package com.orangebox.kit.company
 
 import com.orangebox.kit.core.address.AddressInfo
 
+
 class CompanyCard {
     var id: String? = null
     var name: String? = null
