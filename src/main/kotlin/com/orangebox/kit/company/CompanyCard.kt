@@ -1,5 +1,6 @@
 package com.orangebox.kit.company
 
+import com.orangebox.kit.company.cnae.Cnae
 import com.orangebox.kit.core.address.AddressInfo
 
 class CompanyCard {
@@ -14,4 +15,5 @@ class CompanyCard {
     var distance: Double? = null
     var addressInfo: AddressInfo? = null
     var info: Map<String, Any>? = null
+    var secondaryCnae: List<Cnae>? = null
 }
