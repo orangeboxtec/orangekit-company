@@ -16,4 +16,5 @@ class CompanyCard {
     var addressInfo: AddressInfo? = null
     var info: Map<String, Any>? = null
     var secondaryCnae: List<Cnae>? = null
+    var secondaryCnaes: List<Cnae>? = null
 }
