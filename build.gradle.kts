@@ -28,10 +28,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
 
-    implementation("com.orangebox.kit.core:orangekit-core:1.0.18")
+    implementation("com.orangebox.kit.core:orangekit-core:1.0.22")
     implementation("com.orangebox.kit.authkey:orangekit-authkey:1.0.1")
-    implementation("com.orangebox.kit.notification:orangekit-notification:1.0.4")
-    implementation("com.orangebox.kit.admin:orangekit-admin:1.0.38")
+    implementation("com.orangebox.kit.notification:orangekit-notification:1.0.6")
+    implementation("com.orangebox.kit.admin:orangekit-admin:1.0.49")
 
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
