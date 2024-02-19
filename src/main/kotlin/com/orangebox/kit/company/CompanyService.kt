@@ -8,9 +8,9 @@ import com.orangebox.kit.core.exception.BusinessException
 import com.orangebox.kit.core.file.FileUpload
 import com.orangebox.kit.core.file.GalleryItem
 import com.orangebox.kit.core.utils.BusinessUtils
+import jakarta.enterprise.context.ApplicationScoped
+import jakarta.inject.Inject
 import java.util.*
-import javax.enterprise.context.ApplicationScoped
-import javax.inject.Inject
 
 @ApplicationScoped
 class CompanyService {

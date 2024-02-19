@@ -5,11 +5,11 @@ import com.orangebox.kit.admin.util.SecuredAdmin
 import com.orangebox.kit.core.dto.ResponseList
 import com.orangebox.kit.core.file.FileUpload
 import com.orangebox.kit.core.file.GalleryItem
+import jakarta.inject.Inject
+import jakarta.ws.rs.*
+import jakarta.ws.rs.core.MediaType
 import java.util.*
 import java.util.function.Predicate
-import javax.inject.Inject
-import javax.ws.rs.*
-import javax.ws.rs.core.MediaType
 
 @Path("/company")
 class CompanyRestService : AdminBaseRestService() {
