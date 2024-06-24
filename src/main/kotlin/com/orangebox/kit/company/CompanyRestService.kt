@@ -34,6 +34,14 @@ class CompanyRestService : AdminBaseRestService() {
     }
 
     @SecuredAdmin
+    @GET
+    @Path("/listActives")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+    fun listActives(): List<Company>? {
+        return companyService.listActives()
+    }
+
+    @SecuredAdmin
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
