@@ -1,5 +1,6 @@
-package com.orangebox.kit.company
+package com.orangebox.kit.company.dao
 
+import com.orangebox.kit.company.model.Company
 import com.orangebox.kit.core.dao.AbstractDAO
 import jakarta.enterprise.context.ApplicationScoped
 

@@ -1,5 +1,8 @@
-package com.orangebox.kit.company
+package com.orangebox.kit.company.model
 
+import com.orangebox.kit.company.dto.CompanyCard
+import com.orangebox.kit.company.dto.ScheduleException
+import com.orangebox.kit.company.dto.WorkingHour
 import com.orangebox.kit.company.cnae.Cnae
 import com.orangebox.kit.core.address.AddressInfo
 import com.orangebox.kit.core.address.AddressUtils
@@ -15,7 +18,6 @@ class Company {
     var socialName: String? = null
     var code: String? = null
     var idUser: String? = null
-    var idObj: String? = null
     var document: String? = null
     var documentType: String? = null
     var fantasyName: String? = null
@@ -28,7 +30,7 @@ class Company {
     var branchName: String? = null
     var phone: String? = null
     var type: String? = null
-    var idParent: String? = null
+    var idObj: String? = null
     var phoneNumber: Long? = null
     var phoneCountryCode: Int? = null
     var addressInfo: AddressInfo? = null

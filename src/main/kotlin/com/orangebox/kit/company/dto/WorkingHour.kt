@@ -1,4 +1,4 @@
-package com.orangebox.kit.company
+package com.orangebox.kit.company.dto
 
 class WorkingHour {
 	var weekDay: Int? = null

@@ -1,5 +1,6 @@
-package com.orangebox.kit.company
+package com.orangebox.kit.company.util
 
+import com.orangebox.kit.company.dto.WorkingHour
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -1,4 +1,4 @@
-package com.orangebox.kit.company
+package com.orangebox.kit.company.dto
 
 import com.orangebox.kit.company.cnae.Cnae
 import com.orangebox.kit.core.address.AddressInfo
