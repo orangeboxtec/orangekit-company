@@ -15,6 +15,7 @@ class Company {
     var socialName: String? = null
     var code: String? = null
     var idUser: String? = null
+    var idObj: String? = null
     var document: String? = null
     var documentType: String? = null
     var fantasyName: String? = null
