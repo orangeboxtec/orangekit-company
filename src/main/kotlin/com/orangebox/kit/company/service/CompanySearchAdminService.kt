@@ -1,5 +1,6 @@
 package com.orangebox.kit.company.service
 
+import com.orangebox.kit.admin.userb.UserB
 import com.orangebox.kit.company.dao.CompanyDAO
 import com.orangebox.kit.company.dto.CompanySearch
 import com.orangebox.kit.company.model.Company
@@ -17,7 +18,7 @@ class CompanySearchAdminService {
     @Inject
     private lateinit var companyDAO: CompanyDAO
 
-    fun searchAdmin(search: CompanySearch): ResponseList<Company>? {
+    fun searchAdmin(search: CompanySearch, userB: UserB): ResponseList<Company>? {
         val builder: SearchBuilder = companyDAO.createBuilder()
         if (search.status != null) {
             builder.appendParamQuery("status", search.status!!)
@@ -25,8 +26,10 @@ class CompanySearchAdminService {
         if (search.idCategory != null) {
             builder.appendParamQuery("idCategory", search.idCategory!!)
         }
-        if (search.idParent != null) {
-            builder.appendParamQuery("idParent", search.idParent!!)
+        if (search.idObj != null) {
+            builder.appendParamQuery("idObj", search.idObj!!)
+        } else if (userB.idObj != null) {
+            builder.appendParamQuery("idObj", userB.idObj!!)
         }
         if (search.type != null) {
             builder.appendParamQuery("type", search.type!!)

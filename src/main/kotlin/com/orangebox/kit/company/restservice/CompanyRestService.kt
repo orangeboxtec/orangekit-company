@@ -120,10 +120,10 @@ class CompanyRestService : AdminBaseRestService() {
 
     @SecuredAdmin
     @GET
-    @Path("/listByIdParent/{idParent}")
+    @Path("/listByIdParent/{idObj}")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    fun listByIdParent(@PathParam("idParent") idParent: String): List<CompanyCard>? {
-        return companyListByIdParentService.listByIdParent(idParent)
+    fun listByIdParent(@PathParam("idObj") idObj: String): List<CompanyCard>? {
+        return companyListByIdParentService.listByIdParent(idObj)
     }
 
     @POST
@@ -132,7 +132,7 @@ class CompanyRestService : AdminBaseRestService() {
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     @Path("/searchAdmin")
     fun searchAdmin(search: CompanySearch): ResponseList<Company>? {
-        return companySearchAdminService.searchAdmin(search)
+        return companySearchAdminService.searchAdmin(search, userTokenSession!!)
     }
 
     @SecuredAdmin

@@ -28,8 +28,8 @@ class CompanySearchService {
         if (search.idCategory != null) {
             builder.appendParamQuery("category.id", search.idCategory!!)
         }
-        if (search.idParent != null) {
-            builder.appendParamQuery("idParent", search.idParent!!)
+        if (search.idObj != null) {
+            builder.appendParamQuery("idObj", search.idObj!!)
         }
         if (search.contacEmail != null) {
             builder.appendParamQuery("contactEmail", search.contacEmail!!)

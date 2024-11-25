@@ -12,10 +12,10 @@ class CompanyListByIdParentService {
     @Inject
     private lateinit var companyDAO: CompanyDAO
 
-    fun listByIdParent(idParent: String): List<CompanyCard> {
+    fun listByIdParent(idObj: String): List<CompanyCard> {
         val list = ArrayList<CompanyCard>()
         companyDAO.search(companyDAO.createBuilder()
-            .appendParamQuery("idParent", idParent)
+            .appendParamQuery("idObj", idObj)
             .appendParamQuery("status", "ACTIVE")
             .appendSort("fantasyName", 1)
             .build())?.forEach { company ->

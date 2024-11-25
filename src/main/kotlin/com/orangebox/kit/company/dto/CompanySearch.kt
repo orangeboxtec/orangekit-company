@@ -6,7 +6,7 @@ class CompanySearch {
     var queryString: String? = null
     var idCategory: String? = null
     var idUser: String? = null
-    var idParent: String? = null
+    var idObj: String? = null
     var latitude: Double? = null
     var longitude: Double? = null
     var city: String? = null
